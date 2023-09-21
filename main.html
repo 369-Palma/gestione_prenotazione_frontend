@@ -14,5 +14,51 @@
       </div>
       <span>Login</span>
     </navbar>
+    <main class="main">
+        <div class="boxForm">
+        <h2>CERCA POSTAZIONE:</h2>
+       
+        <form>
+            <div>
+                <h3> Città:</h3>
+                <input type="text" name="citta" placeholder="Scrivi una città" autocomplete="off"/>
+            </div>
+            <div>
+                <h3> Tipo di postazione:</h3>
+                <!-- <label for="selectOption">Scegli una opzione:</label> -->
+                    <select id="selectOption" name="tipo"> Scegli un'opzione
+                        <option value="opzione1"></option>
+                        <option value="opzione2">PRIVATO</option>
+                        <option value="opzione3">OPENSPACE</option>
+                        <option value="opzione4">SALA_RIUNIONI</option>
+                    </select>
+            </div>
+            <div>
+                <h3> Data:</h3>
+                <input type="date" name="dataPrenotata" />
+            </div>
+            <button> Cerca</button>
+        </form>
+    </div>
+    <div class="risultatiRicerca">
+<ul id="listaRisultati" ></ul>
+    </div>
+    </main>
+    <footer class="footer">
+        
+     <div class="containerFooter">
+        <div class="contatti">
+            <h4>
+           Contatti: 
+        </h4>
+            <p>email: p.iacobelli@gmail.com</p>
+            <p> cell: 3713326583 </p>
+        </div>
+        
+        <p id="copyright">Made with love,   
+            Palma Iacobelli &copy; 2023
+        </p>
+     </div>
+    </footer>
   </body>
 </html>
