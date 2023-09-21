@@ -1,0 +1,37 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+  background-color: rgb(24, 24, 24);
+  padding: 2em;
+  margin: 0;
+}
+
+.boxNav {
+  width: 10rem;
+  display: flex;
+  justify-content: start;
+}
+
+#homeSpan {
+  margin-right: 1em;
+}
+
+span {
+  color: antiquewhite;
+}
+
+span:hover {
+  transform: scale(1.2);
+  color: rgb(107, 215, 239);
+  font-weight: bold;
+  text-transform: uppercase;
+}
