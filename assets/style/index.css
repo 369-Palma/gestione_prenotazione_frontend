@@ -17,7 +17,6 @@ h2 {
   justify-content: space-around;
   position: fixed;
   width: 100%;
-  font-size: xx-large;
   background-color: #242323;
   padding: 2em;
   margin: 0;
@@ -76,16 +75,27 @@ main {
   margin-left: auto;
   border: 3px solid black;
   min-width: max-content;
-  padding: 1em 0.3em;
+  /* padding: 1em 0.3em; */
+  padding: 3em;
 }
 
 .boxForm:hover {
   box-shadow: 1px 1px 20px 7px #b9b9b98f;
 }
+@media (min-width: 1280px) {
+  .boxForm {
+    margin-top: 9em;
+  }
+}
+
 @media (min-width: 750px) {
+  .navBar {
+    font-size: xx-large;
+  }
+
   .boxForm {
     width: 50%;
-    height: 60%;
+    /*   height: 60%; */
     font-size: larger;
   }
   form div {
@@ -123,6 +133,7 @@ button {
   margin-top: 50px;
   border-color: rgb(3, 3, 3);
   border-radius: 0.5em;
+  font-size: 0.8em;
 }
 #selectOption {
   min-width: max-content;
@@ -143,6 +154,11 @@ button {
   background-color: bisque;
 }
 
+#risultatiLista {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
 /* FOOTER STYLE */
 
 .footer {
