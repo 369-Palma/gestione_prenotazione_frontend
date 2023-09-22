@@ -18,7 +18,7 @@
       <div class="boxForm">
         <h2>CERCA POSTAZIONE:</h2>
        
-        <form>
+        <form id="cercaForm" onSubmit="return handleSubmit(event);">
             <div>
                 <h3> Città:</h3>
                 <input type="text" name="citta" placeholder="Scrivi una città" autocomplete="off"/>
@@ -37,17 +37,15 @@
                 <h3> Data:</h3>
                 <input type="date" name="dataPrenotata" />
             </div>
-            <button> Cerca</button>
+            <button type="submit"> Cerca</button>
         </form> 
       </div>
     </main>
     <section class="boxRisultati">
      <div class="risultatiRicerca">
-          <ul id="risultatiLista">
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae modi totam molestiae voluptas laboriosam, eos provident laborum ea magni labore? Omnis, officiis? Maxime ipsa hic accusantium perspiciatis numquam neque dolores!</li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae modi totam molestiae voluptas laboriosam, eos provident laborum ea magni labore? Omnis, officiis? Maxime ipsa hic accusantium perspiciatis numquam neque dolores!</li>
-            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae modi totam molestiae voluptas laboriosam, eos provident laborum ea magni labore? Omnis, officiis? Maxime ipsa hic accusantium perspiciatis numquam neque dolores!</li>
-          </ul>
+          <table id="risultatiLista">
+            
+          </table>
     </div>
   </section>
     <footer class="footer">

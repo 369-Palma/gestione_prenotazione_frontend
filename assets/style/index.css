@@ -155,7 +155,7 @@ button {
 }
 
 #risultatiLista {
-  max-width: 100%;
+  min-width: max-content;
   margin: 0;
   padding: 0;
 }
@@ -200,5 +200,29 @@ button {
     justify-content: center;
     padding-top: 3em;
     font-size: small;
+  }
+}
+
+@media (min-width: 1280px) {
+  table {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+  }
+  table td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+  }
+
+  td button {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1280px) {
+  #risultatiLista {
+    display: none;
   }
 }
