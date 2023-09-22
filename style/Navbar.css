@@ -9,6 +9,7 @@ html {
 h2 {
   display: flex;
   align-self: flex-start;
+  text-align: center;
 }
 
 .navBar {
@@ -59,37 +60,35 @@ main {
   margin-left: auto;
   border: 3px solid black;
   min-width: max-content;
-  /* max-width: min-content; */
-  /* padding: 1rem; */
   padding: 1em 0.3em;
 }
 
 .boxForm:hover {
   box-shadow: 1px 1px 20px 7px #b9b9b98f;
 }
-
-/* @media (min-width: 800px) {
+@media (min-width: 750px) {
   .boxForm {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    width: 50%;
+    height: 60%;
+    font-size: larger;
   }
+  form div {
+    font-size: x-large;
+  }
+  div input,
+  #selectOption {
+    font-size: xx-large;
+    height: 1.5em;
+  }
+
   h2 {
-    align-self: center;
+    margin: 0em auto 1em auto;
+    font-size: xx-large;
   }
 }
-form {
-  width: 100%;
-}
-form div {
-  display: flex;
-  margin-top: 50px;
-} */
 
 input,
 select {
-  /* max-width: 10em;
-  padding: 5px 10px; */
   padding: 5px 10px;
   text-align: center;
   font-size: medium;
@@ -113,9 +112,19 @@ button {
   min-width: max-content;
 }
 
-#risultatiRicerca {
-  max-height: fit-content;
+/* SECTION RISULTATI RICERCA */
+
+.risultatiRicerca {
+  margin: 0 20px;
+  max-width: fit-content;
+
   padding: 1em;
+  font-size: large;
+}
+
+.boxRisultati,
+.risultatiRicerca {
+  background-color: bisque;
 }
 
 /* FOOTER STYLE */
@@ -141,8 +150,23 @@ button {
 .containerFooter {
   display: flex;
   justify-content: space-around;
+  font-size: large;
 }
 #copyright {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 770px) {
+  .containerFooter,
+  #copyright {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  #copyright {
+    justify-content: center;
+    padding-top: 3em;
+    font-size: small;
+  }
 }
