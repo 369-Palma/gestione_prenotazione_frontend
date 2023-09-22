@@ -211,6 +211,12 @@ button {
 }
 
 @media (min-width: 1280px) {
+  .listaRis,
+  ul,
+  li {
+    display: none;
+  }
+
   table {
     margin-right: auto;
     margin-left: auto;
@@ -228,16 +234,7 @@ button {
   }
 }
 
-@media (min-width: 650px) {
-  .listaRis {
-    display: flex;
-    padding: 2em;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
-@media (max-width: 650px) {
+@media (max-width: 375px) {
   .listaRis {
     display: flex;
     flex-direction: column;
@@ -246,17 +243,20 @@ button {
   }
 }
 
-@media (max-width: 1280px) {
-  .listaRis {
-    display: none;
-  }
-}
-
-@media (max-width: 1280px) {
+@media (max-width: 1300px) {
   table #risultatiLista,
   table td,
   table tr,
   td button {
     display: none;
+  }
+
+  .listaRis {
+    display: flex;
+    padding: 2em;
+    justify-content: space-between;
+    padding: 2em;
+    margin-bottom: 2em;
+    min-width: max-content;
   }
 }
