@@ -4,6 +4,7 @@ html {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  background-color: black;
 }
 
 h2 {
@@ -159,6 +160,12 @@ button {
   margin: 0;
   padding: 0;
 }
+
+.boxRisultati {
+  min-width: min-content;
+  display: flex;
+  justify-content: center;
+}
 /* FOOTER STYLE */
 
 .footer {
@@ -221,8 +228,35 @@ button {
   }
 }
 
+@media (min-width: 650px) {
+  .listaRis {
+    display: flex;
+    padding: 2em;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .listaRis {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    margin-bottom: 2em;
+  }
+}
+
 @media (max-width: 1280px) {
-  #risultatiLista {
+  .listaRis {
+    display: none;
+  }
+}
+
+@media (max-width: 1280px) {
+  table #risultatiLista,
+  table td,
+  table tr,
+  td button {
     display: none;
   }
 }
