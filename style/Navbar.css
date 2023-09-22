@@ -15,7 +15,9 @@ h2 {
 .navBar {
   display: flex;
   justify-content: space-around;
-  font-size: large;
+  position: fixed;
+  width: 100%;
+  font-size: xx-large;
   background-color: #242323;
   padding: 2em;
   margin: 0;
@@ -33,12 +35,26 @@ h2 {
 }
 
 span:hover {
-  transform: scale(1.2);
-  color: rgb(107, 215, 239);
+  transform: scale(0.9);
   font-weight: bold;
   text-transform: uppercase;
 }
 
+.navBar span {
+  padding: 10px 20px;
+}
+
+#login {
+  border: 0.5px solid beige;
+  text-transform: uppercase;
+  border-radius: 15px;
+}
+
+#login:hover {
+  border: 1.2px solid black;
+  background-color: beige;
+  color: #242323;
+}
 /* MAIN STYLE */
 main {
   width: 100%;
