@@ -25,7 +25,7 @@ const ulElement = document.getElementById("lista");
 
 async function getPostazioni() {
   try {
-    let res = await fetch("http://localhost:8081/api/postazione/pageable");
+    let res = await fetch(`http://localhost:8081/api/postazione/pageable`);
     if (!res.ok) {
       throw new Error("Errore nella richiesta API");
     } else {
@@ -71,7 +71,7 @@ async function getPostazioni() {
             <td>${item.building.name}</td>
             <td>${item.building.address}</td>
             <td>${item.building.citta.name}</td>
-            <td> <button> Prenota </button></td>
+            <td> <a href="prenotazionePage.html"> <button class="bottoneSubmit"> Prenota </button> </a></td>
           `;
 
           tableElement.appendChild(trElement);
@@ -99,7 +99,7 @@ async function getPostazioni() {
           <strong>Indirizzo:</strong> ${item.building.address}<br>
           <strong>Città:</strong> ${item.building.citta.name}<br>
           </div>
-          <button> Prenota </button>
+          <a href="prenotazionePage.html"> <button class="bottoneSubmit"> Prenota </button> </a>
           </div>
         `;
 
@@ -164,7 +164,7 @@ async function getPostazioniDisponibili(citta, tipo) {
               <td>${item.building.name}</td>
               <td>${item.building.address}</td>
               <td>${item.building.citta.name}</td>
-              <td> <button> Prenota </button></td>
+              <td><a href="prenotazionePage.html"> <button> Prenota </button> </a></td>
             `;
 
           tableElement.appendChild(trElement);
@@ -191,7 +191,7 @@ async function getPostazioniDisponibili(citta, tipo) {
           <strong>Indirizzo:</strong> ${item.building.address}<br>
           <strong>Città:</strong> ${item.building.citta.name}<br>
           </div>
-          <button> Prenota </button>
+          <a href="prenotazionePage.html"> <button> Prenota </button> </a>
           </div>
         `;
 

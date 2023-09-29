@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./assets/style/index.css" > </link>
+    <title>Prenotazione</title>
+  </head>
+  <body>
+    <navbar class="navBar">
+      <div class="boxNav">
+       <a href="main.html"> <span id="homeSpan">Home</span></a>
+        <span>Contatti</span>
+      </div>
+      <span id="login">Login</span>
+    </navbar>
+    <form id="prenotaForm">
+      <!-- DATI CLIENTE/DIPENDENTE -->
+      <div class="infoDipendente">
+        <!-- nome -->
+        <div class="rigaInfo">
+        <h3>Nome:</h3>
+        <input
+          type="text"
+          name="name"
+          autocomplete="off"
+          placeholder="Inserisci il tuo nome"
+        />
+      </div>
+        <!-- cognome -->
+        <div class="rigaInfo">
+          <h3>Cognome:</h3>
+        <input
+          type="text"
+          name="lastname"
+          autocomplete="off"
+          placeholder="Inserisci il tuo cognome"
+        />
+        </div>
+        <!-- email -->
+        <div class="rigaInfo">
+          <h3>Email:</h3>
+        <input
+          type="text"
+          name="email"
+          autocomplete="off"
+          placeholder="Inserisci la tua email"
+        />
+        </div>
+      
+      <!-- DATI POSTAZIONE SCELTA -->
+
+
+      <!-- DATI PRENOTAZIONE DATA -->
+      <!-- Data richiesta per prenotazione -->
+      <div class="rigaInfo">
+        <h3>Data prenotazione:</h3>
+      <input
+        type="date"
+        name="dataPrenotata"
+        autocomplete="off"
+        
+      />
+    </div>
+    <button class="bottone"> Prenota </button>
+    </form>
+    <footer class="footerPrenotazione">
+        
+      <div class="containerFooter">
+         <div class="contatti">
+             <h4>
+            Contatti: 
+         </h4>
+             <p>email: p.iacobelli@gmail.com</p>
+             <p> cell: 3713326583 </p>
+         </div>
+         
+         <p id="copyright">Made with love,   
+             Palma Iacobelli &copy; 2023
+         </p>
+      </div>
+     </footer>
+  </body>
+</html>

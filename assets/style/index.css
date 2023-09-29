@@ -7,6 +7,12 @@ html {
   background-color: black;
 }
 
+a {
+  text-decoration: none;
+  text-decoration-line: none;
+  forced-color-adjust: auto;
+}
+
 h2 {
   display: flex;
   align-self: flex-start;
@@ -16,7 +22,7 @@ h2 {
 .navBar {
   display: flex;
   justify-content: space-around;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   background-color: #242323;
   padding: 2em;
@@ -140,6 +146,14 @@ button {
   min-width: max-content;
 }
 
+.bottoneSubmit {
+  background-color: #242323;
+  color: beige;
+  border: 1px solid beige;
+  font-size: large;
+  letter-spacing: 2px;
+}
+
 /* SECTION RISULTATI RICERCA */
 
 .risultatiRicerca {
@@ -172,6 +186,15 @@ button {
   background-color: #242323;
   color: antiquewhite;
   padding: 2em;
+}
+
+.footerPrenotazione {
+  background-color: #242323;
+  color: antiquewhite;
+  padding: 2em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .copyright {
@@ -259,4 +282,52 @@ button {
     margin-bottom: 2em;
     min-width: max-content;
   }
+}
+
+/* PAGINA PRENOTAZIONE */
+#prenotaForm {
+  margin: 4em 0em;
+}
+
+.infoDipendente {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.rigaInfo {
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: auto;
+  margin-left: auto; */
+  text-align: center;
+}
+
+.rigaInfo h3 {
+  color: beige;
+}
+.rigaInfo input {
+  margin-left: 1em;
+  background-color: beige;
+  text-align: center;
+  width: 15em;
+  height: 100%;
+  display: flex;
+  align-self: center;
+}
+
+.bottone {
+  background-color: beige;
+  font-size: x-large;
+  letter-spacing: 2px;
+}
+
+.bottone:hover {
+  background-color: #242323;
+  color: beige;
+  border: 1px solid beige;
+  text-transform: uppercase;
+  padding: 10px, 20px;
 }
