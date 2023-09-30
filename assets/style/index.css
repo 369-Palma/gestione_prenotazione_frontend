@@ -29,7 +29,16 @@ h2 {
   margin: 0;
   color: antiquewhite;
 }
-
+.navBarMain {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background-color: #242323;
+  padding: 2em;
+  margin: 0;
+  color: antiquewhite;
+}
 .boxNav {
   width: 10rem;
   display: flex;
@@ -73,6 +82,7 @@ main {
   padding: 0;
 }
 .boxForm {
+  width: 50%;
   background-color: bisque;
   display: flex;
   flex-direction: column;
@@ -189,12 +199,14 @@ button {
 }
 
 .footerPrenotazione {
+  width: 100%;
   background-color: #242323;
   color: antiquewhite;
-  padding: 2em;
+  /* padding: 2em; */
+  padding: 0;
+  margin: 0;
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: -1rem;
 }
 
 .copyright {

@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  //console.log("DomContentLoad attivo");
   getPostazioni();
 
   document
@@ -18,6 +19,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
       getPostazioniDisponibili(citta, tipo);
     });
+
+  document.addEventListener("click", function (event) {
+    console.log("evento attivato al click");
+    if (event.target.classList.contains(`prenotaButtonJs`)) {
+      const postazione = {
+        id: event.target.dataset.postazioneId,
+        codice: event.target.dataset.postazioneCodice,
+        descrizione: event.target.dataset.postazioneDescrizione,
+        numeroMaxOccupanti: event.target.dataset.postazioneNumeroMaxOccupanti,
+        tipo: event.target.dataset.postazioneTipo,
+        building: {
+          id: event.target.dataset.postazioneBuilding,
+          name: event.target.dataset.postazioneName,
+          address: event.target.dataset.postazioneAddress,
+          citta: {
+            id: event.target.dataset.postazioneCittaId,
+            name: event.target.dataset.postazioneCitta,
+          },
+        },
+      };
+      console.log("La postazione selezionata è: ", postazione);
+      //converto l'oggetto postazione in formato JSON e poi salvo le info nel localStorage
+      const postazioneJSON = JSON.stringify(postazione);
+      localStorage.setItem(`postazione`, postazioneJSON);
+
+      console.log("postazioneJSON: ", postazioneJSON);
+    }
+  });
 });
 
 const tableElement = document.getElementById("risultatiLista");
@@ -71,7 +100,19 @@ async function getPostazioni() {
             <td>${item.building.name}</td>
             <td>${item.building.address}</td>
             <td>${item.building.citta.name}</td>
-            <td> <a href="prenotazionePage.html"> <button class="bottoneSubmit"> Prenota </button> </a></td>
+            <td> <a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+              item.id
+            }" data-postazione-codice="${item.codice}"
+            data-postazione-descrizione="${item.descrizione}"
+            data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+            data-postazione-tipo="${item.tipo}"
+            data-postazione-building="${item.building.id}"
+            data-postazione-name="${item.building.name}"
+            data-postazione-address="${item.building.address}"
+            data-postazione-citta-id="${item.building.citta.id}"
+            data-postazione-citta="${
+              item.building.citta.name
+            }"> Prenota </button> </a></td>
           `;
 
           tableElement.appendChild(trElement);
@@ -99,7 +140,19 @@ async function getPostazioni() {
           <strong>Indirizzo:</strong> ${item.building.address}<br>
           <strong>Città:</strong> ${item.building.citta.name}<br>
           </div>
-          <a href="prenotazionePage.html"> <button class="bottoneSubmit"> Prenota </button> </a>
+          <a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+            item.id
+          }" data-postazione-codice="${item.codice}"
+          data-postazione-descrizione="${item.descrizione}"
+          data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+          data-postazione-tipo="${item.tipo}"
+          data-postazione-building="${item.building.id}"
+          data-postazione-name="${item.building.name}"
+          data-postazione-address="${item.building.address}"
+          data-postazione-citta-id="${item.building.citta.id}"
+          data-postazione-citta="${
+            item.building.citta.name
+          }"> Prenota </button> </a>
           </div>
         `;
 
@@ -117,6 +170,9 @@ async function getPostazioni() {
 /* GET POSTAZIONI CON I CRITERI INDICATI DALL'UTENTE */
 
 async function getPostazioniDisponibili(citta, tipo) {
+  const tableElement = document.getElementById("risultatiLista");
+  const ulElement = document.getElementById("lista");
+
   try {
     tableElement.innerHTML = "";
     ulElement.innerHTML = "";
@@ -130,9 +186,12 @@ async function getPostazioniDisponibili(citta, tipo) {
 
       /* NUOVO ELEMENTO TABELLA */
 
-      let tableElement = document.getElementById("risultatiLista");
       if (data.content.length === 0) {
-        tableElement.style.display = "none";
+        //tableElement.style.display = "none";
+        tableElement.innerHTML = `
+        <p> Non ci sono elementi nel database con i criteri selezionati. 
+        Effettua una ricerca in un altra città o seleziona un'altro tipo di postazione </p>
+        `;
       } else {
         tableElement.style.display = "table";
 
@@ -164,7 +223,18 @@ async function getPostazioniDisponibili(citta, tipo) {
               <td>${item.building.name}</td>
               <td>${item.building.address}</td>
               <td>${item.building.citta.name}</td>
-              <td><a href="prenotazionePage.html"> <button> Prenota </button> </a></td>
+              <td><a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+                item.id
+              }" data-postazione-codice="${item.codice}"
+              data-postazione-descrizione="${item.descrizione}"
+              data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+              data-postazione-tipo="${item.tipo}"
+              data-postazione-building="${item.building.id}"
+              data-postazione-name="${item.building.name}"
+              data-postazione-address="${item.building.address}"
+              data-postazione-citta-id="${item.building.citta.id}"
+              data-postazione-citta="${item.building.citta.name}"
+              > Prenota </button> </a></td>
             `;
 
           tableElement.appendChild(trElement);
@@ -191,7 +261,19 @@ async function getPostazioniDisponibili(citta, tipo) {
           <strong>Indirizzo:</strong> ${item.building.address}<br>
           <strong>Città:</strong> ${item.building.citta.name}<br>
           </div>
-          <a href="prenotazionePage.html"> <button> Prenota </button> </a>
+          <a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+            item.id
+          }" data-postazione-codice="${item.codice}"
+          data-postazione-descrizione="${item.descrizione}"
+          data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+          data-postazione-tipo="${item.tipo}"
+          data-postazione-building="${item.building.id}"
+          data-postazione-name="${item.building.name}"
+          data-postazione-address="${item.building.address}"
+          data-postazione-citta-id="${item.building.citta.id}"
+          data-postazione-citta="${
+            item.building.citta.name
+          }"> Prenota </button> </a>
           </div>
         `;
 
