@@ -19,36 +19,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
       getPostazioniDisponibili(citta, tipo);
     });
-
-  document.addEventListener("click", function (event) {
-    console.log("evento attivato al click");
-    if (event.target.classList.contains(`prenotaButtonJs`)) {
-      const postazione = {
-        id: event.target.dataset.postazioneId,
-        codice: event.target.dataset.postazioneCodice,
-        descrizione: event.target.dataset.postazioneDescrizione,
-        numeroMaxOccupanti: event.target.dataset.postazioneNumeroMaxOccupanti,
-        tipo: event.target.dataset.postazioneTipo,
-        building: {
-          id: event.target.dataset.postazioneBuilding,
-          name: event.target.dataset.postazioneName,
-          address: event.target.dataset.postazioneAddress,
-          citta: {
-            id: event.target.dataset.postazioneCittaId,
-            name: event.target.dataset.postazioneCitta,
-          },
-        },
-      };
-      console.log("La postazione selezionata è: ", postazione);
-      //converto l'oggetto postazione in formato JSON e poi salvo le info nel localStorage
-      const postazioneJSON = JSON.stringify(postazione);
-      localStorage.setItem(`postazione`, postazioneJSON);
-
-      console.log("postazioneJSON: ", postazioneJSON);
-    }
-  });
 });
 
+document.addEventListener("click", function (event) {
+  console.log("evento attivato al click");
+  if (event.target.classList.contains(`prenotaButtonJs`)) {
+    const postazione = {
+      id: event.target.dataset.postazioneId,
+      codice: event.target.dataset.postazioneCodice,
+      descrizione: event.target.dataset.postazioneDescrizione,
+      numeroMaxOccupanti: event.target.dataset.postazioneNumeroMaxOccupanti,
+      tipo: event.target.dataset.postazioneTipo,
+      building: {
+        id: event.target.dataset.postazioneBuilding,
+        name: event.target.dataset.postazioneName,
+        address: event.target.dataset.postazioneAddress,
+        citta: {
+          id: event.target.dataset.postazioneCittaId,
+          name: event.target.dataset.postazioneCitta,
+        },
+      },
+    };
+    console.log("La postazione selezionata è: ", postazione);
+    //converto l'oggetto postazione in formato JSON e poi salvo le info nel localStorage
+    const postazioneJSON = JSON.stringify(postazione);
+    localStorage.setItem(`postazione`, postazioneJSON);
+
+    console.log("postazioneJSON: ", postazioneJSON);
+  }
+});
 const tableElement = document.getElementById("risultatiLista");
 const ulElement = document.getElementById("lista");
 
