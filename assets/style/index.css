@@ -166,6 +166,277 @@ button {
 
 /* SECTION RISULTATI RICERCA */
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}
+
+h2 {
+  display: flex;
+  align-self: flex-start;
+  text-align: center;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  width: 100%;
+  background-color: #242323;
+  padding: 2em;
+  margin: 0;
+  color: antiquewhite;
+}
+
+.boxNav {
+  width: 10rem;
+  display: flex;
+  justify-content: start;
+}
+
+#homeSpan {
+  margin-right: 1em;
+}
+
+span:hover {
+  transform: scale(0.9);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navBar span {
+  padding: 10px 20px;
+}
+
+#login {
+  border: 0.5px solid beige;
+  text-transform: uppercase;
+  border-radius: 15px;
+}
+
+#login:hover {
+  border: 1.2px solid black;
+  background-color: beige;
+  color: #242323;
+}
+/* MAIN STYLE */
+main {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.boxForm {
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  border: 3px solid black;
+  min-width: max-content;
+  /* padding: 1em 0.3em; */
+  padding: 3em;
+}
+
+.boxForm:hover {
+  box-shadow: 1px 1px 20px 7px #b9b9b98f;
+}
+@media (min-width: 1280px) {
+  .boxForm {
+    margin-top: 9em;
+  }
+}
+
+@media (min-width: 750px) {
+  .navBar {
+    font-size: xx-large;
+  }
+
+  .boxForm {
+    width: 50%;
+    /*   height: 60%; */
+    font-size: larger;
+  }
+  form div {
+    font-size: x-large;
+  }
+  div input,
+  #selectOption {
+    font-size: xx-large;
+    height: 1.5em;
+  }
+
+  h2 {
+    margin: 0em auto 1em auto;
+    font-size: xx-large;
+  }
+}
+
+input,
+select {
+  padding: 5px 10px;
+  text-align: center;
+  font-size: medium;
+  border-radius: 0.5em;
+}
+
+#placeholderF {
+  color: grey;
+  font-style: italic;
+}
+
+button {
+  padding: 5px, 10px;
+  width: 6em;
+  height: 3em;
+  margin-top: 50px;
+  border-color: rgb(3, 3, 3);
+  border-radius: 0.5em;
+  font-size: 0.8em;
+}
+#selectOption {
+  min-width: max-content;
+}
+
+/* SECTION RISULTATI RICERCA */
+
+.risultatiRicerca {
+  margin: 0 20px;
+  max-width: fit-content;
+
+  padding: 1em;
+  font-size: large;
+}
+
+.boxRisultati,
+.risultatiRicerca {
+  background-color: bisque;
+}
+
+#risultatiLista {
+  min-width: max-content;
+  margin: 0;
+  padding: 0;
+}
+
+.boxRisultati {
+  min-width: min-content;
+  display: flex;
+  justify-content: center;
+}
+/* FOOTER STYLE */
+
+.footer {
+  background-color: #242323;
+  color: antiquewhite;
+  padding: 2em;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+}
+
+.contatti {
+  display: flex;
+  flex-direction: column;
+}
+.contatti h4 {
+  text-transform: uppercase;
+}
+.containerFooter {
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+}
+#copyright {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 770px) {
+  .containerFooter,
+  #copyright {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  #copyright {
+    justify-content: center;
+    padding-top: 3em;
+    font-size: small;
+  }
+}
+
+@media (min-width: 1280px) {
+  .listaRis,
+  ul,
+  li {
+    display: none;
+  }
+
+  table {
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+  }
+  table td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+  }
+
+  td button {
+    margin: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .listaRis {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    margin-bottom: 2em;
+  }
+}
+
+@media (max-width: 1300px) {
+  table #risultatiLista,
+  table td,
+  table tr,
+  td button {
+    display: none;
+  }
+
+  .listaRis {
+    display: flex;
+    padding: 2em;
+    justify-content: space-between;
+    padding: 2em;
+    margin-bottom: 2em;
+    min-width: max-content;
+  }
+}
+
+.bottoneSubmit {
+  background-color: #242323;
+  color: beige;
+  border: 1px solid beige;
+  font-size: large;
+  letter-spacing: 2px;
+}
+
 .risultatiRicerca {
   margin: 0 20px;
   max-width: fit-content;
@@ -297,7 +568,7 @@ button {
 }
 
 /* PAGINA PRENOTAZIONE */
-#prenotaForm {
+/* #prenotaForm {
   margin: 4em 0em;
 }
 
@@ -312,8 +583,7 @@ button {
 .rigaInfo {
   display: flex;
   justify-content: space-between;
-  /* margin-right: auto;
-  margin-left: auto; */
+  
   text-align: center;
 }
 
@@ -343,3 +613,4 @@ button {
   text-transform: uppercase;
   padding: 10px, 20px;
 }
+ */
