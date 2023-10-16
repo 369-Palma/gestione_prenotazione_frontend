@@ -14,6 +14,7 @@
       </div>
       <span id="login">Login</span>
     </navbar>
+    <main>
     <form id="prenotaForm">
       <!-- DATI CLIENTE/DIPENDENTE -->
       <div class="infoDipendente">
@@ -46,7 +47,8 @@
           autocomplete="off"
           placeholder="Inserisci la tua email"
         />
-        </div>
+       
+      </div>
       
       <!-- DATI POSTAZIONE SCELTA -->
 
@@ -54,7 +56,7 @@
       <!-- DATI PRENOTAZIONE DATA -->
       <!-- Data richiesta per prenotazione -->
       <div class="rigaInfo">
-        <h3>Data prenotazione:</h3>
+        <h3>Data desiderata:</h3>
       <input
         type="date"
         name="dataPrenotata"
@@ -64,7 +66,9 @@
     </div>
     <button type="submit" class="bottone"> Prenota </button>
     </form>
-    <footer class="footerPrenotazione">
+  </main>
+  <div class="footerPrenotazione">
+    <footer>
         
       <div class="containerFooter">
          <div class="contatti">
@@ -80,6 +84,7 @@
          </p>
       </div>
      </footer>
+    </div>
      <script src="assets/js/prenotazione.js"></script>
   </body>
 </html>

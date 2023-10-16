@@ -556,54 +556,83 @@ button {
   td button {
     display: none;
   }
-
+.boxRisultati a{
+  max-width:30%;
+}
   .listaRis {
     display: flex;
     padding: 2em;
     justify-content: space-between;
     padding: 2em;
     margin-bottom: 2em;
-    min-width: max-content;
+    /* min-width: max-content; */
   }
 }
 
 /* PAGINA PRENOTAZIONE */
-/* #prenotaForm {
-  margin: 4em 0em;
-}
 
-.infoDipendente {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+#prenotaForm {
+ 
+ width:35%;
+ margin-right:auto;
+ margin-left:auto;
+/*  border: 1px solid beige;
+ */}
 
-.rigaInfo {
-  display: flex;
-  justify-content: space-between;
+
+ @media (max-width: 720px) {
+  .footerPrenotazione {
+    height: 10%;
+    background-color: #242323;
+    color: antiquewhite;
+    padding: 0;
+    margin: 0;
+    
+  }
+  main{
+    width:100%;
+    margin-right:auto;
+    margin-left:auto;
+  }
+  .rigaInfo{
+    width: max-content;
+  }
+  .rigaInfo h3{
+    color: beige;
+    margin-right:10px;
+  }
   
-  text-align: center;
+  .rigaInfo input{
+    height: 30px;
+    font-size:medium;
+  }
+  
+  }
+
+@media (min-width: 720px) {
+.rigaInfo{
+  width: max-content;
+  display:flex;
+  align-items:center;
+  margin-right:auto;
+  margin-left:auto;
+}
+.rigaInfo h3{
+  color: beige;
+  margin-right:10px;
 }
 
-.rigaInfo h3 {
-  color: beige;
+.rigaInfo input{
+  height: 30px;
+  font-size:medium;
 }
-.rigaInfo input {
-  margin-left: 1em;
-  background-color: beige;
-  text-align: center;
-  width: 15em;
-  height: 100%;
-  display: flex;
-  align-self: center;
+
 }
 
 .bottone {
   background-color: beige;
-  font-size: x-large;
   letter-spacing: 2px;
+ margin:1.2em;
 }
 
 .bottone:hover {
@@ -613,4 +642,3 @@ button {
   text-transform: uppercase;
   padding: 10px, 20px;
 }
- */
