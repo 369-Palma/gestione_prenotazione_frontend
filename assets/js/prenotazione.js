@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM content load attivo");
+
   const datiMemorizzati = localStorage.getItem("postazione");
   let postazione = null;
 
@@ -37,17 +37,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("dataPrenotata: ", prenotazioneForm.dataPrenotata);
     console.log("dati prenotazione: ", prenotazioneForm);
+    prenotaPostazione();
   });
 });
 
+
+const prenotaPostazione = async () => {
+  
+}
+
+
+
+
+
 function formatDate(inputDate) {
-  // Assume che l'inputDate sia nel formato "gg-mm-aaaa"
+  
   const parts = inputDate.split("-");
   if (parts.length === 3) {
     const [day, month, year] = parts;
-    // Restituisci la data nel formato "aaaa-mm-gg"
+    // Restituisce la data nel formato "aaaa-mm-gg"
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   }
-  // Se il formato non è valido, restituisci l'input originale
+  
   return inputDate;
 }
