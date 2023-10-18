@@ -30,27 +30,39 @@ document.addEventListener("DOMContentLoaded", function () {
       lastname: cognome,
       email: email
     };
+
+    
+
     const newDipendente = await aggiungiDipendente(dipendente);
     const dipendenteId = await getDipendenteIdByEmail(email);
 
+const prenotazioneForm = {
+  dipendente: {
+    dipendenteId: dipendenteId, 
+    name: nome,
+    lastname: cognome,
+    email: email
+  },
+  postazione: postazione,
+  dataPrenotata: dataPrenotata,
+  dataPrenotazione: `${anno}-${mese}-${giorno}`,
+}
+
     if (newDipendente) {
-      const prenotazioneForm = {
-        dipendente: {
+      prenotazioneForm.dipendente = {
         dipendenteId: dipendenteId,
         name: nome,
         lastname: cognome,
         email: email
-      },
-      postazione: postazione,
-       // postazioneId: postazione.id,
-       dataPrenotata: formatDate(dataPrenotata),
-      dataPrenotazione: `${anno}-${mese}-${giorno}`,
       };
-
+      prenotazioneForm.postazione = postazione;
+      prenotazioneForm.dataPrenotata = formatDate(prenotazioneForm.dataPrenotata);
+      prenotazioneForm.dataPrenotazione = `${anno}-${mese}-${giorno}`;
       console.log("dati di prenotazione: ", prenotazioneForm);
-
-      prenotaPostazione(prenotazioneForm);
     }
+    const newPrenotazione = await prenotaPostazione(prenotazioneForm);
+      console.log("dati di prenotazione: ", prenotazioneForm);
+      console.log("data prenotata: ", prenotazioneForm.dataPrenotata);
   });
 
   async function getDipendenteIdByEmail(email) {
@@ -67,24 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
-  async function prenotaPostazione(prenotazioneForm) {
-    try {
-      let res = await fetch(`http://localhost:8081/api/prenotazione`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(prenotazioneForm),
-      });
-      if (res.ok) {
-        console.log("dati prenotazione:", prenotazioneForm);
-        alert("Registrazione avvenuta con successo!");
-      }
-    } catch (error) {
-      console.log("C'è stato un errore nel contattare il server:", error);
-    }
-  }
 
   function formatDate(inputDate) {
     const parts = inputDate.split("-");
@@ -112,6 +106,25 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } catch (error) {
       console.log("cambia lavoro!");
+    }
+  }
+
+  async function prenotaPostazione(prenotazioneForm) {
+    try {
+      let res = await fetch(`http://localhost:8081/api/prenotazione`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(prenotazioneForm),
+      });
+      if (res.ok) {
+        console.log("dati prenotazione:", prenotazioneForm);
+        return alert("Registrazione avvenuta con successo!");
+      }
+    } catch (error) {
+      console.log("C'è stato un errore nel contattare il server:", error);
     }
   }
 });
