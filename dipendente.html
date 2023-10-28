@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dati cliente</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> --> 
+    
+</head>
+<body>
+  <h1> Aggiungi i tuoi dati </h1>
+    <form id="aggiungiDipendente" >
+        <!-- DATI CLIENTE/DIPENDENTE -->
+        <div class="infoDipendente">
+          <!-- nome -->
+          <div class="rigaInfo">
+          <h3>Nome:</h3>
+          <input
+            type="text"
+            name="name"
+            autocomplete="off"
+            placeholder="Inserisci il tuo nome"
+          />
+        </div>
+          <!-- cognome -->
+          <div class="rigaInfo">
+            <h3>Cognome:</h3>
+          <input
+            type="text"
+            name="lastname"
+            autocomplete="off"
+            placeholder="Inserisci il tuo cognome"
+          />
+          </div>
+          <!-- email -->
+          <div class="rigaInfo">
+            <h3>Email:</h3>
+          <input
+            type="text"
+            name="email"
+            autocomplete="off"
+            placeholder="Inserisci la tua email"
+          />
+         
+        </div>
+         <button type="submit" class="bottone"> Salva </button>
+    </form>
+<script src="/assets/js/dipendente.js"></script>    
+</body>
+</html>

@@ -99,7 +99,7 @@ async function getPostazioni() {
             <td>${item.building.name}</td>
             <td>${item.building.address}</td>
             <td>${item.building.citta.name}</td>
-            <td> <a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+            <td> <a href="dipendente.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
               item.id
             }" data-postazione-codice="${item.codice}"
             data-postazione-descrizione="${item.descrizione}"
@@ -139,7 +139,7 @@ async function getPostazioni() {
           <strong>Indirizzo:</strong> ${item.building.address}<br>
           <strong>Città:</strong> ${item.building.citta.name}<br>
           </div>
-          <a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+          <a href="dipendente.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
             item.id
           }" data-postazione-codice="${item.codice}"
           data-postazione-descrizione="${item.descrizione}"
@@ -222,7 +222,7 @@ async function getPostazioniDisponibili(citta, tipo) {
               <td>${item.building.name}</td>
               <td>${item.building.address}</td>
               <td>${item.building.citta.name}</td>
-              <td><a href="prenotazionePage.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
+              <td><a href="dipendente.html"> <button class="bottoneSubmit prenotaButtonJs" data-postazione-id="${
                 item.id
               }" data-postazione-codice="${item.codice}"
               data-postazione-descrizione="${item.descrizione}"
