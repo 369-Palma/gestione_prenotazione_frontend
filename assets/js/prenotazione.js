@@ -2,15 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const datiPostazione = localStorage.getItem("postazione");
   let postazione = null;
 
-const datiDipendente = localStorage.getItem("newDipendente");
-let dipendente = null;
+/* const datiDipendente = localStorage.getItem("newDipendente");
+let dipendente = null; */
 
 
-  if (datiPostazione && datiDipendente) {
+  if (datiPostazione) {
     postazione = JSON.parse(datiPostazione);
-    dipendente = JSON.parse(datiDipendente);
+    //dipendente = JSON.parse(datiDipendente);
     console.log("Info postazione selezionata:", postazione);
-    console.log("Info dipendente:", dipendente);
   } else {
     console.log("I dati non sono stati trovati in localStorage");
   }
@@ -27,36 +26,40 @@ let dipendente = null;
     const anno = dataOdierna.getFullYear();
 
 const dataPrenotata = formData.get("dataPrenotata");
-   /*  const nome = formData.get("name");
+    const nome = formData.get("name");
     const cognome = formData.get("lastname");
     const email = formData.get("email");
     
 
-    // Step 1: Creazione del dipendente
+    // Creo l'oggetto dipendente con i dati del form come valori delle proprietà
     const dipendente = {
       name: nome,
       lastname: cognome,
       email: email
     };
-    const newDipendenteId = await aggiungiDipendente(dipendente);
-    if (newDipendenteId) {
-    // Step 2: Ricerca dell'ID del dipendente tramite email
-    const dipendenteId = await getDipendenteIdByEmail(email); */
 
-    // Step 3: Aggiornamento dei dati nel body della prenotazione (prenotazioneForm)
+    // creo nuovo dipendente nel db e salvo il suo id
+    const dipendenteId = await aggiungiDipendente(dipendente);
+
+    //leggo l'oggetto dipendente cercandolo per il suo id
+    const newDipendente = await getNewDipendente(dipendenteId);
     
+    //Aggiorno dati del corpo della chiamata per prenotazione
     const prenotazioneForm = {
       postazione: postazione,
-      dipendente: dipendente,
+      dipendente: newDipendente,
       dataPrenotata: dataPrenotata,
       dataPrenotazione: `${anno}-${mese}-${giorno}`,
     };
 
     console.log("Dati di prenotazione:", prenotazioneForm);
 
-    // Step 4: Esecuzione della fetch per creare la prenotazione
+    // Creazione della prenotazione
     const newPrenotazione = await prenotaPostazione(prenotazioneForm);
   })
+
+
+
 
   function formatDate(inputDate) {
     const parts = inputDate.split("-");
@@ -68,7 +71,7 @@ const dataPrenotata = formData.get("dataPrenotata");
     return inputDate;
   }
 
-  /* async function aggiungiDipendente(dipendente) {
+  async function aggiungiDipendente(dipendente) {
     try {
       let res = await fetch("http://localhost:8081/api/dipendente", {
         method: "POST",
@@ -90,21 +93,24 @@ const dataPrenotata = formData.get("dataPrenotata");
       console.error("C'è stato un errore durante la richiesta di creazione del Dipendente:", error);
       return null;
     }
-  } */
+  }
 
-/*   async function getDipendenteIdByEmail(email) {
+  const getNewDipendente = async (dipendenteId) => {
     try {
-      const response = await fetch(`http://localhost:8081/api/dipendente/dipendenteid/email/${email}`);
-      if (response.ok) {
-        const id = await response.json();
-        console.log("ID del dipendente trovato per email:", id);
-        return id;
-      }
+        const res = await fetch(`http://localhost:8081/api/dipendente/id/${dipendenteId}`);
+        if (res.ok) {
+            const newDipendente = await res.json();
+            console.log("ricerca dipendente tramite id. Dipendente trovato: ", newDipendente);
+            return newDipendente; 
+        } else {
+            console.error("Errore durante la ricerca del Dipendente tramite id.");
+            return null;
+        }
     } catch (error) {
-      console.error("Errore durante il recupero dell'ID del dipendente:", error);
+        console.error("C'è stato un errore durante la richiesta del Dipendente tramite id:", error);
+        return null;
     }
-    return null;
-  } */
+}
 
   async function prenotaPostazione(prenotazioneForm) {
     try {
@@ -118,7 +124,7 @@ const dataPrenotata = formData.get("dataPrenotata");
       });
       if (res.ok) {
         console.log("Dati prenotazione:", prenotazioneForm);
-        alert("Registrazione avvenuta con successo!");
+        alert("Prenotazione avvenuta con successo!");
       } else if (res.status === 400) {
         const errorMessage = await res.text();
         alert(errorMessage);
@@ -129,4 +135,5 @@ const dataPrenotata = formData.get("dataPrenotata");
       console.log("C'è stato un errore nel contattare il server:", error);
     }
   }
+
 })
