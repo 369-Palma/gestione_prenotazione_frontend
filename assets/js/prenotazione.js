@@ -3,13 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let postazione = null;
 
 const datiDipendente = localStorage.getItem("newDipendente");
-let newDipendente = null;
+let dipendente = null;
 
 
   if (datiPostazione && datiDipendente) {
     postazione = JSON.parse(datiPostazione);
+    dipendente = JSON.parse(datiDipendente);
     console.log("Info postazione selezionata:", postazione);
-    console.log("Info dipendente:", datiDipendente);
+    console.log("Info dipendente:", dipendente);
   } else {
     console.log("I dati non sono stati trovati in localStorage");
   }
@@ -25,10 +26,11 @@ let newDipendente = null;
     const mese = dataOdierna.getMonth() + 1;
     const anno = dataOdierna.getFullYear();
 
-    const nome = formData.get("name");
+const dataPrenotata = formData.get("dataPrenotata");
+   /*  const nome = formData.get("name");
     const cognome = formData.get("lastname");
     const email = formData.get("email");
-    const dataPrenotata = formData.get("dataPrenotata");
+    
 
     // Step 1: Creazione del dipendente
     const dipendente = {
@@ -39,11 +41,13 @@ let newDipendente = null;
     const newDipendenteId = await aggiungiDipendente(dipendente);
     if (newDipendenteId) {
     // Step 2: Ricerca dell'ID del dipendente tramite email
-    const dipendenteId = await getDipendenteIdByEmail(email);
+    const dipendenteId = await getDipendenteIdByEmail(email); */
 
     // Step 3: Aggiornamento dei dati nel body della prenotazione (prenotazioneForm)
+    
     const prenotazioneForm = {
       postazione: postazione,
+      dipendente: dipendente,
       dataPrenotata: dataPrenotata,
       dataPrenotazione: `${anno}-${mese}-${giorno}`,
     };
@@ -52,11 +56,7 @@ let newDipendente = null;
 
     // Step 4: Esecuzione della fetch per creare la prenotazione
     const newPrenotazione = await prenotaPostazione(prenotazioneForm);
-  } else {
-    console.log("Errore durante l'aggiunta del Dipendente.");
-    
-  }
-  });
+  })
 
   function formatDate(inputDate) {
     const parts = inputDate.split("-");
@@ -68,7 +68,7 @@ let newDipendente = null;
     return inputDate;
   }
 
-  async function aggiungiDipendente(dipendente) {
+  /* async function aggiungiDipendente(dipendente) {
     try {
       let res = await fetch("http://localhost:8081/api/dipendente", {
         method: "POST",
@@ -90,9 +90,9 @@ let newDipendente = null;
       console.error("C'è stato un errore durante la richiesta di creazione del Dipendente:", error);
       return null;
     }
-  }
+  } */
 
-  async function getDipendenteIdByEmail(email) {
+/*   async function getDipendenteIdByEmail(email) {
     try {
       const response = await fetch(`http://localhost:8081/api/dipendente/dipendenteid/email/${email}`);
       if (response.ok) {
@@ -104,7 +104,7 @@ let newDipendente = null;
       console.error("Errore durante il recupero dell'ID del dipendente:", error);
     }
     return null;
-  }
+  } */
 
   async function prenotaPostazione(prenotazioneForm) {
     try {
@@ -129,4 +129,4 @@ let newDipendente = null;
       console.log("C'è stato un errore nel contattare il server:", error);
     }
   }
-});
+})
