@@ -642,3 +642,18 @@ button {
   text-transform: uppercase;
   padding: 10px, 20px;
 }
+
+/* dettagli prenotazione */
+#recap {
+  display: none;
+  color:beige;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+#recap p{
+  line-height: 2em;
+  letter-spacing: 2px;
+  font-size:large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

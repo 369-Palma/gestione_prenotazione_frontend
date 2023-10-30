@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   const datiPostazione = localStorage.getItem("postazione");
   let postazione = null;
 
@@ -59,7 +60,7 @@ const dataPrenotata = formData.get("dataPrenotata");
   })
 
 
-
+/* FUNZIONI PER FORMATO DATI E CHIAMTE AL SERVER */
 
   function formatDate(inputDate) {
     const parts = inputDate.split("-");
@@ -69,6 +70,14 @@ const dataPrenotata = formData.get("dataPrenotata");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     }
     return inputDate;
+  }
+
+  function formatDateToDDMMYYYY(inputDate) {
+    const date = new Date(inputDate);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 
   async function aggiungiDipendente(dipendente) {
@@ -113,6 +122,9 @@ const dataPrenotata = formData.get("dataPrenotata");
 }
 
   async function prenotaPostazione(prenotazioneForm) {
+    const recapPrenotazione = document.getElementById("recap")
+const main = document.getElementById("main")
+const formPrenotazione= document.getElementById("prenotaForm")
     try {
       let res = await fetch("http://localhost:8081/api/prenotazione", {
         method: "POST",
@@ -125,6 +137,19 @@ const dataPrenotata = formData.get("dataPrenotata");
       if (res.ok) {
         console.log("Dati prenotazione:", prenotazioneForm);
         alert("Prenotazione avvenuta con successo!");
+        const dataPrenotataFormatted = formatDateToDDMMYYYY(prenotazioneForm.dataPrenotata);
+        formPrenotazione.style.display = "none";
+        recapPrenotazione.style.display = "block";
+        recapPrenotazione.innerHTML = `
+        <h2> La tua prenotazione </h2>
+        <p> Gentile ${prenotazioneForm.dipendente.lastname} ${prenotazioneForm.dipendente.name} </br>
+        ti aspettiamo a   ${prenotazioneForm.postazione.building.name} </br>
+        presso ${prenotazioneForm.postazione.building.address} a ${prenotazioneForm.postazione.building.citta.name} </br>
+        il ${dataPrenotataFormatted}.
+        </p>
+        `
+        main.appendChild(recapPrenotazione);
+
       } else if (res.status === 400) {
         const errorMessage = await res.text();
         alert(errorMessage);
