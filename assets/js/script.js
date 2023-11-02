@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+
   getPostazioni();
 
   document
@@ -74,14 +75,14 @@ async function getPostazioni() {
 
         theadElement.innerHTML = `
       <tr>
-         <th> <strong>Codice</strong> </th>
-         <th> <strong>Descrizione</strong> </th>
-         <th> <strong>N° Max</strong> </th>
-         <th> <strong>Disponibile</strong> </th>
-         <th> <strong>Tipo</strong> </th>
-         <th> <strong>Edificio</strong> </th>
-         <th> <strong>Indirizzo</strong> </th>
-         <th> <strong>Città</strong> </th>
+         <th class="intestazione"> <strong>Codice</strong> </th>
+         <th class="intestazione"> <strong>Descrizione</strong> </th>
+         <th class="intestazione"> <strong>N° Max</strong> </th>
+         <th class="intestazione"> <strong>Disponibile</strong> </th>
+         <th class="intestazione"> <strong>Tipo</strong> </th>
+         <th class="intestazione"> <strong>Edificio</strong> </th>
+         <th class="intestazione"> <strong>Indirizzo</strong> </th>
+         <th class="intestazione"> <strong>Città</strong> </th>
       </tr>
       `;
 

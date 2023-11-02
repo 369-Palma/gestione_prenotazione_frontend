@@ -8,19 +8,19 @@
     <title>Prenotazione postazione</title>
   </head>
   <body>
-    <navbar class="navBar">
+    <nav id="navBar">
       <div class="boxNav">
         <span id="homeSpan">Home</span>
         <span>Contatti</span>
       </div>
       <span id="login">Login</span>
-    </navbar>
+    </nav>
     <main class="main">
       <div class="boxForm">
         <h2>CERCA POSTAZIONE:</h2>
        
         <form id="cercaForm">
-            <div>
+            <div class="campoRicerca">
                 <h3> Città:</h3>
                 <input type="text" placeholder="Scrivi una città" autocomplete="off" name= "name"/>
             </div>
@@ -38,7 +38,7 @@
             <button type="submit" class="bottoneSubmit"> Cerca</button>
         </form> 
       </div>
-    </main>
+     </main>
     <section class="boxRisultati">
      <div class="risultatiRicerca">
       <ul id="lista"></ul>
@@ -47,7 +47,9 @@
           </table>
     </div>
   </section>
-    <footer class="footer">
+  
+   
+   <footer class="footer">
         
      <div class="containerFooter">
         <div class="contatti">
