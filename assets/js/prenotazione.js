@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("I dati non sono stati trovati in localStorage");
   }
 
-  const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYW1AYWlvby5pdCIsImlhdCI6MTY5ODc2MjUxNSwiZXhwIjoxNzE0NTQxMzE1fQ.f3YAq0Z-lFtnLF9bOvIfc-_FeNZJpMpO66GOS-PU54nWjy0mGOe3eP6bvrG0MOOdUsU1lhyPDaoXzIbCjue6MQ";
+  const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYW1AYWlvby5pdCIsImlhdCI6MTY5ODkyMDcxMywiZXhwIjoxNzE0Njk5NTEzfQ.THYGOGLOexdR0_GmscSjRLTzmsR1rQa9LNn1xUzGmpbstV9ibd17QyVh_ebWze7QzJW3Zi7UZNRuq1afI6Yg-Q";
 
   document.addEventListener("submit", async function (event) {
     event.preventDefault();

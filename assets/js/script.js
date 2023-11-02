@@ -25,19 +25,19 @@ document.addEventListener("click", function (event) {
   if (event.target.classList.contains(`prenotaButtonJs`)) {
     const postazione = {
       id: event.target.dataset.postazioneId,
-      codice: event.target.dataset.postazioneCodice,
-      descrizione: event.target.dataset.postazioneDescrizione,
-      maxOccupanti: event.target.dataset.postazioneNumeroMaxOccupanti,
-      tipo: event.target.dataset.postazioneTipo,
-      building: {
-        id: event.target.dataset.postazioneBuilding,
-        name: event.target.dataset.postazioneName,
-        address: event.target.dataset.postazioneAddress,
-        citta: {
-          id: event.target.dataset.postazioneCittaId,
-          name: event.target.dataset.postazioneCitta,
-        },
-      },
+  codice: event.target.dataset.postazioneCodice,
+  descrizione: event.target.dataset.postazioneDescrizione,
+  maxOccupanti: event.target.dataset.postazioneMaxoccupanti,
+  tipo: event.target.dataset.postazioneTipo,
+  building: {
+    id: event.target.dataset.postazioneBuilding,
+    name: event.target.dataset.postazioneName,
+    address: event.target.dataset.postazioneAddress,
+    citta: {
+      id: event.target.dataset.postazioneCittaId,
+      name: event.target.dataset.postazioneCitta,
+    },
+  },
     };
     console.log("La postazione selezionata è: ", postazione);
     //converto l'oggetto postazione in formato JSON e poi salvo le info nel localStorage
@@ -102,7 +102,7 @@ async function getPostazioni() {
               item.id
             }" data-postazione-codice="${item.codice}"
             data-postazione-descrizione="${item.descrizione}"
-            data-postazione-numeroMaxOccupanti="${item.maxOccupanti}"
+            data-postazione-maxoccupanti="${item.maxOccupanti}"
             data-postazione-tipo="${item.tipo}"
             data-postazione-building="${item.building.id}"
             data-postazione-name="${item.building.name}"
@@ -142,7 +142,7 @@ async function getPostazioni() {
             item.id
           }" data-postazione-codice="${item.codice}"
           data-postazione-descrizione="${item.descrizione}"
-          data-postazione-numeroMaxOccupanti="${item.maxOccupanti}"
+          data-postazione-maxoccupanti="${item.maxOccupanti}"
           data-postazione-tipo="${item.tipo}"
           data-postazione-building="${item.building.id}"
           data-postazione-name="${item.building.name}"
@@ -225,7 +225,7 @@ async function getPostazioniDisponibili(citta, tipo) {
                 item.id
               }" data-postazione-codice="${item.codice}"
               data-postazione-descrizione="${item.descrizione}"
-              data-postazione-numeroMaxOccupanti="${item.maxOccupanti}"
+              data-postazione-maxoccupanti="${item.maxOccupanti}"
               data-postazione-tipo="${item.tipo}"
               data-postazione-building="${item.building.id}"
               data-postazione-name="${item.building.name}"
@@ -252,7 +252,7 @@ async function getPostazioniDisponibili(citta, tipo) {
           <strong>ID:</strong> ${item.id}<br>
           <strong>Codice:</strong> ${item.codice}<br>
           <strong>Descrizione:</strong> ${item.descrizione}<br>
-          <strong>Numero Max Occupanti:</strong> ${item.numeroMaxOccupanti}<br>
+          <strong>Numero Max Occupanti:</strong> ${item.maxOccupanti}<br>
           <strong>Disponibile:</strong> ${item.available ? "Sì" : "No"}<br>
           <strong>Tipo:</strong> ${item.tipo}<br>
           <strong>Edificio:</strong> ${item.building.name}<br>
@@ -263,7 +263,7 @@ async function getPostazioniDisponibili(citta, tipo) {
             item.id
           }" data-postazione-codice="${item.codice}"
           data-postazione-descrizione="${item.descrizione}"
-          data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+          data-postazione-maxoccupanti="${item.maxOccupanti}"
           data-postazione-tipo="${item.tipo}"
           data-postazione-building="${item.building.id}"
           data-postazione-name="${item.building.name}"
