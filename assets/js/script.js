@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //console.log("DomContentLoad attivo");
   getPostazioni();
 
   document
@@ -28,7 +27,7 @@ document.addEventListener("click", function (event) {
       id: event.target.dataset.postazioneId,
       codice: event.target.dataset.postazioneCodice,
       descrizione: event.target.dataset.postazioneDescrizione,
-      numeroMaxOccupanti: event.target.dataset.postazioneNumeroMaxOccupanti,
+      maxOccupanti: event.target.dataset.postazioneNumeroMaxOccupanti,
       tipo: event.target.dataset.postazioneTipo,
       building: {
         id: event.target.dataset.postazioneBuilding,
@@ -93,7 +92,7 @@ async function getPostazioni() {
           trElement.innerHTML = `
             <td>${item.codice}</td>
             <td>${item.descrizione}</td>
-            <td>${item.numeroMaxOccupanti}</td>
+            <td>${item.maxOccupanti}</td>
             <td>${item.available ? "Sì" : "No"}</td>
             <td>${item.tipo}</td>
             <td>${item.building.name}</td>
@@ -103,7 +102,7 @@ async function getPostazioni() {
               item.id
             }" data-postazione-codice="${item.codice}"
             data-postazione-descrizione="${item.descrizione}"
-            data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+            data-postazione-numeroMaxOccupanti="${item.maxOccupanti}"
             data-postazione-tipo="${item.tipo}"
             data-postazione-building="${item.building.id}"
             data-postazione-name="${item.building.name}"
@@ -132,7 +131,7 @@ async function getPostazioni() {
           <strong>ID:</strong> ${item.id}<br>
           <strong>Codice:</strong> ${item.codice}<br>
           <strong>Descrizione:</strong> ${item.descrizione}<br>
-          <strong>Numero Max Occupanti:</strong> ${item.numeroMaxOccupanti}<br>
+          <strong>Numero Max Occupanti:</strong> ${item.maxOccupanti}<br>
           <strong>Disponibile:</strong> ${item.available ? "Sì" : "No"}<br>
           <strong>Tipo:</strong> ${item.tipo}<br>
           <strong>Edificio:</strong> ${item.building.name}<br>
@@ -143,7 +142,7 @@ async function getPostazioni() {
             item.id
           }" data-postazione-codice="${item.codice}"
           data-postazione-descrizione="${item.descrizione}"
-          data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+          data-postazione-numeroMaxOccupanti="${item.maxOccupanti}"
           data-postazione-tipo="${item.tipo}"
           data-postazione-building="${item.building.id}"
           data-postazione-name="${item.building.name}"
@@ -216,7 +215,7 @@ async function getPostazioniDisponibili(citta, tipo) {
           trElement.innerHTML = `
               <td>${item.codice}</td>
               <td>${item.descrizione}</td>
-              <td>${item.numeroMaxOccupanti}</td>
+              <td>${item.maxOccupanti}</td>
               <td>${item.available ? "Sì" : "No"}</td>
               <td>${item.tipo}</td>
               <td>${item.building.name}</td>
@@ -226,7 +225,7 @@ async function getPostazioniDisponibili(citta, tipo) {
                 item.id
               }" data-postazione-codice="${item.codice}"
               data-postazione-descrizione="${item.descrizione}"
-              data-postazione-numeroMaxOccupanti="${item.numeroMaxOccupanti}"
+              data-postazione-numeroMaxOccupanti="${item.maxOccupanti}"
               data-postazione-tipo="${item.tipo}"
               data-postazione-building="${item.building.id}"
               data-postazione-name="${item.building.name}"

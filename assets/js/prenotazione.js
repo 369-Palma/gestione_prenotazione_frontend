@@ -3,28 +3,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const datiPostazione = localStorage.getItem("postazione");
   let postazione = null;
 
-/* const datiDipendente = localStorage.getItem("newDipendente");
-let dipendente = null; */
-
-
   if (datiPostazione) {
     postazione = JSON.parse(datiPostazione);
-    //dipendente = JSON.parse(datiDipendente);
     console.log("Info postazione selezionata:", postazione);
   } else {
     console.log("I dati non sono stati trovati in localStorage");
   }
 
-  const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYWxtYUBob3RtYWlsLml0IiwiaWF0IjoxNjk3ODAwMjEzLCJleHAiOjE3MTM1NzkwMTN9.Ets5KyYK9JiyIEwBlAxaJqzFflB16DoECe_h06xoCuj42HTX3ZY1KrXYoUir913tFUrsxflCetuBRTVaF-qOeA";
+  const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYW1AYWlvby5pdCIsImlhdCI6MTY5ODc2MjUxNSwiZXhwIjoxNzE0NTQxMzE1fQ.f3YAq0Z-lFtnLF9bOvIfc-_FeNZJpMpO66GOS-PU54nWjy0mGOe3eP6bvrG0MOOdUsU1lhyPDaoXzIbCjue6MQ";
 
   document.addEventListener("submit", async function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
 
     const dataOdierna = new Date();
-    const giorno = dataOdierna.getDate();
-    const mese = dataOdierna.getMonth() + 1;
-    const anno = dataOdierna.getFullYear();
+    const giorno = dataOdierna.getDate().toString().padStart(2, '0');
+const mese = (dataOdierna.getMonth() + 1).toString().padStart(2, '0');
+const anno = dataOdierna.getFullYear();
 
 const dataPrenotata = formData.get("dataPrenotata");
     const nome = formData.get("name");
@@ -126,7 +121,7 @@ const dataPrenotata = formData.get("dataPrenotata");
 const main = document.getElementById("main")
 const formPrenotazione= document.getElementById("prenotaForm")
     try {
-      let res = await fetch("http://localhost:8081/api/prenotazione", {
+      let res = await fetch("http://localhost:8081/api/prenotazione/prenota", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
