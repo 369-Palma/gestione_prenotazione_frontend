@@ -1,6 +1,6 @@
 html,
 body{
-  width:100wv;
+  width:100vw;
   margin:0;
   padding:0;
   background-color: black;
@@ -23,9 +23,19 @@ ul {
   margin:0;
   padding:0;
 }
+
+.boxNav a{
+  text-decoration: none;
+  text-decoration-line: none;
+}
+
+#homeSpan{
+  color:beige;
+}
+
 /* NAVBAR */
 
-#navBar{
+.navBar{
   width:100%;
   position:fixed;
   top:0; 
@@ -69,9 +79,10 @@ ul {
 
 .main{
   width:100%;
-  margin-top:8em;
+  margin:8em auto 0em auto;
   display:flex;
   justify-content: center;
+  
 }
 
 #cercaForm{
@@ -81,7 +92,7 @@ ul {
 }
 
 .boxForm{
-  max-width: 80%;
+  max-width: 100%;
   height: max-content;
   padding: 10px;
   border-radius:5px;
@@ -120,7 +131,9 @@ ul {
 }
 
 
-
+.listaRis div strong{
+  line-height: 30px;
+}
 
 @media (max-width: 720px) {
   .footer {
@@ -144,6 +157,12 @@ ul {
     margin-bottom:5em;
   }
 
+  .listaRis div{
+   padding:1em 2em;
+  }
+  .listaRis button{
+    margin-left:2em;
+  }
   .listaRis:hover {
     background-color: #242323;
     color: bisque;
@@ -171,16 +190,20 @@ ul {
     margin-right: 10px;
   }
 
-  .rigaInfo input {
-    height: 30px;
-    font-size: medium;
-  }
-
   table #risultatiLista,
   table td,
   table tr,
   td button {
     display: none;
+  }
+
+  .rigaInfo{
+    display:flex;
+    flex-direction:column;
+  }
+
+  .rigaInfo input{
+    text-align:center;
   }
 }
 
@@ -216,6 +239,22 @@ ul {
   table tr,
   td button {
     display: none;
+  }
+
+  .rigaInfo{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-around;
+  }
+
+  .rigaInfo input{
+    margin-left:1em;
+    text-align:center;
+  }
+
+  .infoDipendente{
+    width:80%;
   }
 }
 
@@ -275,171 +314,72 @@ ul {
     margin-top:5em;
     max-height:30px;
   }
+
+  .rigaInfo{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    /* justify-content:space-around; */
+  }
+
+  .rigaInfo input{
+    margin-left:1em;
+    text-align:center;
+  }
+
+  .infoDipendente{
+    display:flex;
+    flex-direction:column;
+    align-items: start;
+  }
+
 } 
 
-/* 
-@media (max-width: 720px) {
-  .footerPrenotazione {
-    height: 10%;
-    background-color: #242323;
-    color: antiquewhite;
-    padding: 0;
-    margin: 0;
-  }
+/* FORM PRENOTAZIONE */
 
-  main {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .rigaInfo {
-    width: max-content;
-  }
-
-  .rigaInfo h3 {
-    color: beige;
-    margin-right: 10px;
-  }
-
-  .rigaInfo input {
-    height: 30px;
-    font-size: medium;
-  }
+#main{
+width:50%;
+display:flex;
+justify-content:center;
+align-content:center;
+margin:3em auto ;
 }
 
-
-@media (min-width: 720px) and (max-width: 1300px) {
-  .rigaInfo {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .rigaInfo h3 {
-    color: beige;
-    margin-right: 10px;
-  }
-
-  .rigaInfo input {
-    height: 30px;
-    font-size: medium;
-  }
+#prenotaForm{
+  display:flex;
+  justify-content: center;
+margin:8em auto;
+background-color:bisque;
+  width:100%;
+  min-height:max-content;
+  padding:2em;
+  border-radius:5px;
 }
 
-
-@media (max-width: 375px) {
-  .listaRis {
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
-    margin-bottom: 2em;
-  }
-  table #risultatiLista,
-  table td,
-  table tr,
-  td button {
-    display: none;
-  }
+.rigaInfo h3{
+  color:black;
 }
 
-
-@media (max-width: 1300px) {
-  table #risultatiLista,
-  table td,
-  table tr,
-  td button {
-    display: none;
-  }
-  .listaRis {
-    display: flex;
-    flex-direction: column;
-    padding: 2em;
-    justify-content: space-between;
-    align-items: start;
-    padding: 0em 2em 0 2em;
-    margin-bottom: 2em;
-  }
-
-  .listaRis button {
-    background-color: #242323;
-    color: bisque;
-    margin-left: 2em;
-  }
-
-  .listaRis:hover {
-    background-color: #242323;
-    color: bisque;
-  }
-
-  .listaRis:hover button {
-    background-color: bisque;
-    color: #242323;
-  }
-
-  .listaRis button:hover {
-    background-color: #242323;
-    color: bisque;
-    cursor: pointer;
-    text-transform: uppercase;
-    border: 1px solid bisque;
-  }
+.rigaInfo input {
+  height: 30px;
+  font-size: medium;
+  border-radius:5px;
 }
 
+.bottone{
+  background-color:#242323;
+  color:bisque;
+ };
 
-@media (min-width: 1225px) {
-  table {
-    width: 95%;
-    margin-right: auto;
-    margin-left: auto;
-    display: flex;
-    justify-content: center;
-  }
-
-  table td {
-    border: 1px solid black;
-    text-align: center;
-    padding: 10px;
-  }
-
-  tr .intestazione {
-    background-color: bisque;
-  }
-
-  td button {
-    margin: 0;
-    cursor: pointer;
-    background-color: #242323;
-    color: bisque;
-  }
-
-  table tr:hover {
-    background-color: #242323;
-    color: bisque;
-    font-size: larger;
-  }
-
-  table tr:hover td button {
-    background-color: bisque;
-    color: #242323;
-  }
-
-  table tr td button:hover {
-    background-color: #242323;
-    color: bisque;
-    cursor: pointer;
-    text-transform: uppercase;
-    border: 1px solid bisque;
-  }
-
-  .listaRis,
-  ul,
-  li {
-    display: none;
-  }
-} */
+ .bottone:hover{
+  cursor:pointer;
+  background-color:bisque;
+  color:black;
+  text-transform:uppercase;
+  font-weight:bold;
+ }
+  
 /* FOOTER */
 .footer {
   height:12%;
