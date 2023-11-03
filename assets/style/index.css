@@ -1,6 +1,7 @@
 html,
 body{
   width:100vw;
+  height:100vh;
   margin:0;
   padding:0;
   background-color: black;
@@ -87,7 +88,7 @@ ul {
 
 #cercaForm{
  width:80%;
-  /* min-width:max-content; */
+
   
 }
 
@@ -100,7 +101,7 @@ ul {
   flex-direction:column;
   align-items:center;
   justify-content: center;
-  background-color: bisque;
+  background-color: #ffe4c4;
   margin:1em 0 1.2em 0;
 }
 
@@ -208,6 +209,34 @@ ul {
 }
 
 @media ((min-width: 600px) and (max-width: 1225px)) {
+  /* #cercaForm{
+    padding-left:38%;
+    } */
+    
+      .boxForm{
+        width:50%;
+        margin-right:auto;
+        margin-left:auto;
+      }
+    .campoRicerca{
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      
+    }
+    
+    .campoRicerca input,
+    .campoRicerca select{
+      border-radius: 5px;
+      text-align: center;
+      margin-left:1em;
+      padding:5px 10px;
+    }
+    
+    .bottoneSubmit{
+      padding:5px 10px; 
+    }
+
   .listaRis {
     display: flex;
     flex-direction: row;
@@ -259,6 +288,35 @@ ul {
 }
 
 @media (min-width: 1225px) {
+#cercaForm{
+padding-left:50%;
+}
+
+  .boxForm{
+    width:45%;
+    height:300px;
+    /* margin-right:auto;
+    margin-left:auto; */
+  }
+.campoRicerca{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  
+}
+
+.campoRicerca input,
+.campoRicerca select{
+  border-radius: 5px;
+  text-align: center;
+  margin-left:1em;
+  padding:5px 10px;
+}
+
+.bottoneSubmit{
+  padding:5px 10px; 
+}
+
   table {
     width: 95%;
     margin-right: auto;
@@ -337,6 +395,9 @@ ul {
 } 
 
 /* FORM PRENOTAZIONE */
+#cercaForm h2{
+color:aqua;
+}
 
 #main{
 width:50%;
