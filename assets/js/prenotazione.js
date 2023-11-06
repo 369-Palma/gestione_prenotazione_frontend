@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("I dati non sono stati trovati in localStorage");
   }
 
-  const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYW1AYWlvby5pdCIsImlhdCI6MTY5ODkyMDcxMywiZXhwIjoxNzE0Njk5NTEzfQ.THYGOGLOexdR0_GmscSjRLTzmsR1rQa9LNn1xUzGmpbstV9ibd17QyVh_ebWze7QzJW3Zi7UZNRuq1afI6Yg-Q";
+  const token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwYW1AYWlvby5pdCIsImlhdCI6MTY5OTI3MjAzNywiZXhwIjoxNzE1MDUwODM3fQ.nkhy4jUojmSBC3AlJYIuAptpiaDUiFWLnVIzHz2yh9etf8u7u6nIHj_TdH-MVRF0QCpd8d1wzjsIhXYTTchXHQ";
 
   document.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dataOdierna = new Date();
     const giorno = dataOdierna.getDate().toString().padStart(2, '0');
-const mese = (dataOdierna.getMonth() + 1).toString().padStart(2, '0');
-const anno = dataOdierna.getFullYear();
+    const mese = (dataOdierna.getMonth() + 1).toString().padStart(2, '0');
+    const anno = dataOdierna.getFullYear();
 
-const dataPrenotata = formData.get("dataPrenotata");
+    const dataPrenotata = formData.get("dataPrenotata");
     const nome = formData.get("name");
     const cognome = formData.get("lastname");
     const email = formData.get("email");

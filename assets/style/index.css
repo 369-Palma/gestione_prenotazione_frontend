@@ -5,6 +5,7 @@ body{
   margin:0;
   padding:0;
   background-color: black;
+  font-family: 'Mulish', sans-serif;
 }
 
 button {
@@ -165,6 +166,10 @@ i{
 
 .listaRis div strong{
   line-height: 30px;
+}
+
+#risultatiLista tr:last-child{
+  margin-bottom:7em;
 }
 
 @media (max-width: 720px) {
@@ -408,8 +413,8 @@ padding-left:50%;
     padding: 10px;
   }
 
-  table tr:last-child {
-    margin-bottom: 5em;
+  #risultatiLista tr:last-child {
+    margin-bottom: 7em;
   }
 
   tr .intestazione {
@@ -443,6 +448,7 @@ padding-left:50%;
     border: 1px solid bisque;
   }
 
+  
   .listaRis,
   ul,
   li {
@@ -504,7 +510,10 @@ padding-left:50%;
 
 /* FORM PRENOTAZIONE */
 
-
+.infoDipendente h2{
+  text-transform:uppercase;
+  font-weight:bold;
+}
 #main{
 width:50%;
 display:flex;
@@ -595,9 +604,7 @@ background-color:bisque;
   margin:0;
   
 }
-/* .contatti h4 {
-  text-transform: uppercase;
-} */
+
 .containerFooter {
   width:80%;
   max-height:min-content;
